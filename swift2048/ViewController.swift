@@ -32,7 +32,8 @@ class ViewController: UIViewController {
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int){
         println("buttonIndex:\(buttonIndex)")
-        self.presentViewController(MainViewController(), animated: true, completion: nil)
+        //self.presentViewController(MainViewController(), animated: true, completion: nil)
+        self.presentViewController(MainTabViewController(), animated: true, completion: nil)
     }
 
 }

@@ -101,14 +101,15 @@ class MainViewController : UIViewController
     func setupButtons()
     {
         btnreset = ControlView(title:"重置", action: "resetTapped:", sender: self)
-        btnreset.frame.origin.x = 70
+        btnreset.frame.origin.x = 20
         btnreset.frame.origin.y = 400
         
         self.view.addSubview(btnreset)
         btngen = ControlView(title:"新数", action: "genTapped:", sender: self)
-        btngen.frame.origin.x = 150
+        btngen.frame.origin.x = 100
         btngen.frame.origin.y = 400
         self.view.addSubview(btngen)
+      
     }
     
     func setupSwipeControls() {
@@ -327,6 +328,7 @@ class MainViewController : UIViewController
         genNumber()
     }
     
+  
     func genNumber()
     {
         var seedNumbers = [2,4]

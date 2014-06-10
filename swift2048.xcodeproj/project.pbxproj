@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100B863F19476E61000EC9A4 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100B863E19476E61000EC9A4 /* MainTabViewController.swift */; };
 		101223741946F1A0007C98CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101223731946F1A0007C98CA /* AppDelegate.swift */; };
 		101223761946F1A0007C98CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101223751946F1A0007C98CA /* ViewController.swift */; };
 		101223791946F1A0007C98CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101223771946F1A0007C98CA /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		101223AC1946F41B007C98CA /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101223A91946F41B007C98CA /* ControlView.swift */; };
 		101223AD1946F41B007C98CA /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101223AA1946F41B007C98CA /* ScoreView.swift */; };
 		101223AE1946F41B007C98CA /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101223AB1946F41B007C98CA /* TileView.swift */; };
+		101223B01947670A007C98CA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101223AF1947670A007C98CA /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		100B863E19476E61000EC9A4 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabViewController.swift; path = swift2048/MainTabViewController.swift; sourceTree = "<group>"; };
 		1012236E1946F1A0007C98CA /* swift2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		101223721946F1A0007C98CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		101223731946F1A0007C98CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		101223A91946F41B007C98CA /* ControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ControlView.swift; path = swift2048/ControlView.swift; sourceTree = "<group>"; };
 		101223AA1946F41B007C98CA /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreView.swift; path = swift2048/ScoreView.swift; sourceTree = "<group>"; };
 		101223AB1946F41B007C98CA /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileView.swift; path = swift2048/TileView.swift; sourceTree = "<group>"; };
+		101223AF1947670A007C98CA /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = swift2048/SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				101223A51946F402007C98CA /* MainViewController.swift */,
+				101223AF1947670A007C98CA /* SettingViewController.swift */,
+				100B863E19476E61000EC9A4 /* MainTabViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -252,8 +258,10 @@
 				101223761946F1A0007C98CA /* ViewController.swift in Sources */,
 				101223741946F1A0007C98CA /* AppDelegate.swift in Sources */,
 				101223A81946F40E007C98CA /* GameModel.swift in Sources */,
+				101223B01947670A007C98CA /* SettingViewController.swift in Sources */,
 				101223AC1946F41B007C98CA /* ControlView.swift in Sources */,
 				101223AD1946F41B007C98CA /* ScoreView.swift in Sources */,
+				100B863F19476E61000EC9A4 /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +380,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = swift2048/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -383,8 +393,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = swift2048/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -443,6 +455,7 @@
 				1012238C1946F1A0007C98CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1012238D1946F1A0007C98CA /* Build configuration list for PBXNativeTarget "swift2048Tests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +464,7 @@
 				1012238F1946F1A0007C98CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
