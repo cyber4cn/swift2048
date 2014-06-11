@@ -297,7 +297,7 @@ class MainViewController : UIViewController
                         justInsertTile((row, col), value: gmodel.tiles[index], showNew:AnimationType.MergeTile)
                     }
                 }
-                if(gmodel.tiles[index] == maxnumber)
+                if(gmodel.tiles[index] >= maxnumber)
                 {
                     success = true
                 }

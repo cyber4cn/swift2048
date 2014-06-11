@@ -55,7 +55,6 @@ class SettingViewController:UIViewController,UITextFieldDelegate
           var numberFromString = textField.text.toInt()
           mainview.maxnumber = numberFromString!
         }
-        
         return true
     }
     
