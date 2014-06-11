@@ -23,11 +23,12 @@ class MainViewController : UIViewController
     
     var score:ScoreViewProtocol! = nil
     var bestscore:ScoreViewProtocol! = nil
-    var btnreset:ControlView! = nil
-    var btngen: ControlView! = nil
+    var btnreset:UIButton! = nil
+    var btngen: UIButton! = nil
     
     var tiles: Dictionary<NSIndexPath, TileView>
     var tileVals: Dictionary<NSIndexPath,Int>
+    var backgrounds:Array<UIView>
     
     enum AnimationType {
         case None
@@ -38,6 +39,7 @@ class MainViewController : UIViewController
     
     init()
     {
+        self.backgrounds = Array<UIView>()
         self.tiles =  Dictionary()
         self.tileVals =  Dictionary()
         super.init(nibName: nil, bundle: nil)
@@ -64,16 +66,17 @@ class MainViewController : UIViewController
     
     func setupBackground() {
         
-        var xCursor:CGFloat = 50
+        var xCursor:CGFloat = 30
         var yCursor:CGFloat = 150
         
         for i in 0...dimension-1 {
             yCursor = 150
             for j in 0...dimension-1 {
                 //画方格
-                let background = UIView(frame: CGRectMake(xCursor, yCursor, width, width))
+                var background = UIView(frame: CGRectMake(xCursor, yCursor, width, width))
                 background.backgroundColor = UIColor.darkGrayColor()
                 self.view.addSubview(background)
+                backgrounds += background
                 yCursor += padding + width
             }
             xCursor += padding + width
@@ -85,14 +88,14 @@ class MainViewController : UIViewController
         score = ScoreView()
         var v = score as ScoreView
         v.frame.origin.x = 50
-        v.frame.origin.y = 50
+        v.frame.origin.y = 80
         self.view.addSubview(v)
         score.scoreChanged(newScore: 0)
         
         bestscore = BestScoreView()
         v = bestscore as BestScoreView
         v.frame.origin.x = 150
-        v.frame.origin.y = 50
+        v.frame.origin.y = 80
         self.view.addSubview(v)
         bestscore.scoreChanged(newScore: 0)
         
@@ -100,14 +103,15 @@ class MainViewController : UIViewController
     
     func setupButtons()
     {
-        btnreset = ControlView(title:"重置", action: "resetTapped:", sender: self)
-        btnreset.frame.origin.x = 20
-        btnreset.frame.origin.y = 400
+        var cv = ControlView()
+        btnreset = cv.createButton("重置", action: "resetTapped:", sender: self)
+        btnreset.frame.origin.x = 50
+        btnreset.frame.origin.y = 450
         
         self.view.addSubview(btnreset)
-        btngen = ControlView(title:"新数", action: "genTapped:", sender: self)
-        btngen.frame.origin.x = 100
-        btngen.frame.origin.y = 400
+        btngen = cv.createButton("新数", action: "genTapped:", sender: self)
+        btngen.frame.origin.x = 150
+        btngen.frame.origin.y = 450
         self.view.addSubview(btngen)
       
     }
@@ -309,18 +313,25 @@ class MainViewController : UIViewController
         }
         tiles.removeAll(keepCapacity: true)
         tileVals.removeAll(keepCapacity: true)
+        
+        for background in backgrounds {
+            background.removeFromSuperview()
+        }
+        //background.removeFromSuperview()
+        setupBackground()
+        resetData()
+        genNumber()
+        genNumber()
     }
     func resetData()
     {
-        gmodel.initTiles()
+        gmodel.initTiles(Int(self.dimension))
         gmodel.initScore()
     }
     func resetTapped(sender: UIButton!) {
         
         resetUI()
-        resetData()
-        genNumber()
-        genNumber()
+       
     }
     
     
@@ -364,7 +375,7 @@ class MainViewController : UIViewController
     func justInsertTile(pos: (Int, Int), value: Int, showNew:AnimationType = AnimationType.None)
     {
         let (row, col) = pos
-        let x = 50 + CGFloat(col)*(width + padding)
+        let x = 30 + CGFloat(col)*(width + padding)
         let y = 150 + CGFloat(row)*(width + padding)
         
         let tile = TileView(position: CGPointMake(x, y), width: width, value: value)

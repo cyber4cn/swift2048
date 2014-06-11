@@ -10,7 +10,7 @@ import Foundation
 
 class GameModel{
     
-    var dimension:Int
+    var dimension:Int  = 0
     var tiles:Array<Int>!
     var mtiles:Array<Int>!
     var scoredelegate:ScoreViewProtocol!
@@ -20,12 +20,11 @@ class GameModel{
     
     init(dimension:Int, score:ScoreViewProtocol, bestscore:ScoreViewProtocol)
     {
-        self.dimension = dimension
         self.scoredelegate = score
         self.bsdelegate=bestscore
         self.score = 0
         self.bestscore = 0
-        self.initTiles()
+        self.initTiles(dimension)
     }
     
     func setScore(s:Int)
@@ -39,8 +38,10 @@ class GameModel{
         bsdelegate.scoreChanged(newScore: bestscore)
     }
     
-    func initTiles()
+    func initTiles(dimension:Int)
     {
+        self.dimension = dimension
+        
         self.tiles = Array<Int>(count:self.dimension*self.dimension, repeatedValue:0)
         
         self.mtiles = Array<Int>(count:self.dimension*self.dimension, repeatedValue:0)

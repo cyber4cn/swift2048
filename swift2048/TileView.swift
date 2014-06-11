@@ -46,6 +46,5 @@ class TileView : UIView {
         addSubview(numberLabel)
         self.value = value
         backgroundColor = colorMap[value]
-        
     }
 }

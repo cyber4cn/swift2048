@@ -17,14 +17,21 @@ class MainTabViewController:UITabBarController
         var viewMain = MainViewController();
         viewMain.title = "2048"
         
-        var viewSetting = SettingViewController();
+        var viewSetting = SettingViewController(mainview: viewMain);
         viewSetting.title = "设置"
         
+        var mainSetting =  UINavigationController(rootViewController: viewMain)
+
+        var ctrlSetting = UINavigationController(rootViewController: viewSetting)
+        
+        
         self.viewControllers = [
-            UINavigationController(rootViewController: viewMain),
-            UINavigationController(rootViewController: viewSetting)
+           mainSetting,
+           ctrlSetting
         ]
         self.selectedIndex = 0;
+        
+        
         //
     }
 }
